@@ -1,0 +1,25 @@
+---
+import { withBase } from '../../lib/site';
+const heroImg = withBase('/images/hero.webp');
+---
+
+<header
+  class="hb-hero hb-hero--photo rb-hero rb-on-dark"
+  id="hauptinhalt"
+  style={`--hero-img:url('${heroImg}')`}
+>
+  <div class="container">
+    <span class="hb-badge rb-eyebrow">Heizung · Sanitär · Lüftung</span>
+    <h1>Heizung, Sanitär und Lüftung in Nauheim und Mainz</h1>
+    <p>
+      Reibstein plant, installiert und wartet die Technik, die Ihr Gebäude am Laufen hält –
+      vom Heizungskeller bis zur Lüftungsanlage, für Ihr Zuhause und Ihr Unternehmen.
+      Ein Fachbetrieb, rund 60 Mitarbeiter, ein Anspruch: Technik, die funktioniert.
+    </p>
+    <div class="hb-hero__actions">
+      <a class="hb-btn hb-btn--primary" href="#">Für Ihr Zuhause</a>
+      <a class="hb-btn hb-btn--outline" href="#">Für Ihr Unternehmen</a>
+    </div>
+    <a class="rb-hero__career" href="#">Du willst bei uns arbeiten? → Zur Karriereseite</a>
+  </div>
+</header>

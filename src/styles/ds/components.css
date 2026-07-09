@@ -1,0 +1,123 @@
+/**
+ * Herbert Design System – Komponenten
+ * Wiederverwendbare, framework-freie HTML/CSS-Bausteine. Nur Tokens referenzieren.
+ */
+
+/* ---------- Button ---------- */
+.hb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  line-height: 1;
+  padding: var(--spacing-3) var(--spacing-5);
+  border: 2px solid transparent;
+  border-radius: var(--radius-full);   /* Kreis-/Pill-Form als Markenelement */
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.hb-btn--primary {
+  background: var(--color-action-primary);
+  color: var(--color-action-on-action);
+}
+.hb-btn--primary:hover { background: var(--color-action-primary-hover); color: var(--color-action-on-action); }
+
+.hb-btn--secondary {
+  background: var(--color-action-secondary);
+  color: var(--color-action-on-action);
+}
+.hb-btn--secondary:hover { background: var(--color-action-secondary-hover); color: var(--color-action-on-action); }
+
+.hb-btn--outline {
+  background: transparent;
+  color: var(--color-action-secondary);
+  border-color: var(--color-action-secondary);
+}
+.hb-btn--outline:hover { background: var(--color-action-secondary); color: var(--color-action-on-action); }
+
+/* ---------- Badge ---------- */
+.hb-badge {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-full);
+  background: var(--color-background-accent);
+  color: var(--color-text-on-dark);
+}
+.hb-badge--cool  { background: var(--color-cool-blue); }
+.hb-badge--warm  { background: var(--color-warm-orange); }
+
+/* ---------- Card ---------- */
+.hb-card {
+  background: var(--color-background-default);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .15s ease, transform .15s ease;
+}
+.hb-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.hb-card__icon { width: 48px; height: 48px; margin-bottom: var(--spacing-4); }
+.hb-card__title { color: var(--color-text-heading); font-size: var(--font-size-lg); font-weight: var(--font-weight-semibold); margin: 0 0 var(--spacing-2); }
+.hb-card__text { color: var(--color-text-body); margin: 0; }
+
+/* ---------- Grid ---------- */
+.hb-grid { display: grid; gap: var(--spacing-5); }
+.hb-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.hb-grid--2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 860px) { .hb-grid--3, .hb-grid--2 { grid-template-columns: 1fr; } }
+
+/* ---------- Navbar ---------- */
+.hb-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-5);
+  padding: var(--spacing-4) var(--spacing-5);
+  background: var(--color-background-default);
+  border-bottom: 1px solid var(--color-border-default);
+}
+.hb-nav__brand img { height: 40px; width: auto; }
+.hb-nav__links { display: flex; gap: var(--spacing-5); list-style: none; margin: 0; padding: 0; }
+.hb-nav__links a {
+  color: var(--color-text-heading);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+}
+.hb-nav__links a:hover { color: var(--color-text-accent); }
+@media (max-width: 640px) { .hb-nav__links { display: none; } }
+
+/* ---------- Hero ---------- */
+.hb-hero {
+  background: var(--color-background-inverse);
+  color: var(--color-text-on-dark);
+  padding-block: var(--spacing-10);
+}
+.hb-hero h1 { color: var(--color-text-on-dark); font-size: var(--font-size-5xl); max-width: 16ch; }
+.hb-hero p { color: var(--color-blue-tint-20); font-size: var(--font-size-lg); max-width: 52ch; }
+.hb-hero__actions { display: flex; gap: var(--spacing-3); margin-top: var(--spacing-6); flex-wrap: wrap; }
+
+/* Foto-Hero: Bild über --hero-img setzen; ohne Bild bleibt der blaue Grund (Fallback).
+   Beispiel: <header class="hb-hero hb-hero--photo" style="--hero-img:url('/assets/images/allgemein/hero.jpg')"> */
+.hb-hero--photo {
+  background-image:
+    linear-gradient(rgba(8, 39, 69, 0.78), rgba(8, 39, 69, 0.55)),
+    var(--hero-img, none);
+  background-size: cover;
+  background-position: center;
+}
+
+/* ---------- Footer ---------- */
+.hb-footer {
+  background: var(--color-brand-anthracite);
+  color: var(--color-text-on-dark);
+  padding-block: var(--spacing-7);
+  font-size: var(--font-size-sm);
+}
+.hb-footer a { color: var(--color-text-on-dark); }

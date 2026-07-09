@@ -1,0 +1,66 @@
+---
+import { kontaktNauheim, withBase } from '../../lib/site';
+---
+
+<section class="section" id="kontakt" aria-labelledby="kontakt-title">
+  <div class="container">
+    <div class="rb-section-head">
+      <span class="hb-badge">Kontakt</span>
+      <h2 id="kontakt-title">Sprechen Sie uns an</h2>
+      <p class="rb-lead">
+        Sie haben ein Projekt, eine Frage oder einen Notfall? Rufen Sie uns an oder schreiben Sie
+        uns – wir melden uns schnellstmöglich zurück.
+      </p>
+      <div class="rb-rule"></div>
+    </div>
+
+    <div class="rb-kontakt rb-mt-6">
+      <!-- Standort Nauheim -->
+      <article class="hb-card">
+        <div class="rb-kontakt__card">
+          <img class="rb-kontakt__portrait" src={withBase('/images/rene-turtschan.webp')} alt={kontaktNauheim.ansprechpartner} width="96" height="96" />
+          <div>
+            <h3 class="hb-card__title" style="margin-bottom:var(--spacing-1)">{kontaktNauheim.ansprechpartner}</h3>
+            <p class="hb-card__text">{kontaktNauheim.rolle} · Standort Nauheim</p>
+          </div>
+        </div>
+        <ul class="rb-contact-list">
+          <li>
+            <img src={withBase('/icons/standort.svg')} alt="" width="20" height="20" />
+            <span>{kontaktNauheim.firma}<br />{kontaktNauheim.strasse}, {kontaktNauheim.plzOrt}
+              {kontaktNauheim.verifizieren && <> <span class="rb-placeholder" title="Bestandsdaten – bitte verifizieren">zu prüfen</span></>}
+            </span>
+          </li>
+          <li>
+            <img src={withBase('/icons/notdienst.svg')} alt="" width="20" height="20" />
+            <span><a href={`tel:${kontaktNauheim.telefonHref}`}>{kontaktNauheim.telefon}</a></span>
+          </li>
+          <li>
+            <img src={withBase('/icons/service.svg')} alt="" width="20" height="20" />
+            <span>{kontaktNauheim.zeiten.join(' · ')}</span>
+          </li>
+          <li>
+            <img src={withBase('/icons/notdienst.svg')} alt="" width="20" height="20" />
+            <span><strong>Notdienst:</strong> täglich erreichbar <span class="rb-placeholder" title="Frage 13: Notdienstnummer/-zeiten">Nummer folgt</span></span>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Standort Mainz (Platzhalter) + CTA -->
+      <div class="rb-stack">
+        <article class="hb-card">
+          <h3 class="hb-card__title">Standort Mainz</h3>
+          <p class="hb-card__text">
+            Adresse, Telefon und Ansprechpartner für Mainz
+            <span class="rb-placeholder" title="Frage 11a: Standort Mainz – Adresse/Telefon/Zuständigkeit">Inhalt folgt</span>
+            – oder Hinweis, dass Mainz über die Nauheimer Zentrale läuft.
+          </p>
+        </article>
+        <div class="rb-actions">
+          <a class="hb-btn hb-btn--primary" href="#">Kontakt aufnehmen</a>
+          <a class="hb-btn hb-btn--outline" href={`tel:${kontaktNauheim.telefonHref}`}>Direkt anrufen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+---
+import { withBase } from '../../lib/site';
+
+const tiles = [
+  {
+    img: '/images/reibstein-privatkunden.jpg',
+    badge: 'Privatkunden',
+    badgeClass: 'hb-badge--cool',
+    title: 'Für Ihr Zuhause',
+    text:
+      'Neue Heizung, neues Bad, frische Luft: Wir planen, installieren und warten die Technik in Ihrem Haus – von der Einzelreparatur bis zur Komplettsanierung.',
+    link: 'Zu unseren Leistungen',
+  },
+  {
+    img: '/images/reibstein-gewerbe.jpg',
+    badge: 'Gewerbekunden',
+    badgeClass: 'hb-badge--cool',
+    title: 'Für Ihr Unternehmen',
+    text:
+      'Ob Wohnungsbestand, Gewerbeobjekt oder öffentliche Einrichtung: Wir sorgen dafür, dass Ihre technischen Anlagen zuverlässig laufen – heute und in zwanzig Jahren.',
+    link: 'Zum Gewerbekunden-Bereich',
+  },
+  {
+    img: '/images/karriere.webp',
+    badge: 'Karriere',
+    badgeClass: 'hb-badge--warm',
+    title: 'Für deine Zukunft',
+    text:
+      'Du suchst einen Handwerksbetrieb, der Technik ernst nimmt und dir einen sicheren Arbeitsplatz in der Region bietet? Dann sollten wir uns kennenlernen.',
+    link: 'Zur Karriereseite',
+  },
+];
+---
+
+<section class="section" aria-labelledby="weiche-title">
+  <div class="container">
+    <div class="rb-section-head rb-section-head--center">
+      <span class="hb-badge">Wegweiser</span>
+      <h2 id="weiche-title">Für Zuhause, für Unternehmen, für Ihre Karriere bei uns</h2>
+      <div class="rb-rule"></div>
+    </div>
+
+    <div class="hb-grid hb-grid--3 rb-mt-6">
+      {tiles.map((t) => (
+        <article class="hb-card rb-tile">
+          <div class="rb-tile__media">
+            <img src={withBase(t.img)} alt={t.title} loading="lazy" />
+          </div>
+          <div class="rb-tile__body">
+            <span class={`hb-badge ${t.badgeClass}`}>{t.badge}</span>
+            <h3 class="hb-card__title">{t.title}</h3>
+            <p class="hb-card__text">{t.text}</p>
+            <a class="rb-tile__link" href="#" aria-disabled="true">{t.link}</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

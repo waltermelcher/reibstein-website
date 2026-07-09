@@ -1,0 +1,100 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --color-brand-red: #e4002a; /** HG Rot – primäre Hausfarbe (Signet, Akzent, Aufmerksamkeit). */
+  --color-brand-blue: #082745; /** HG Blau – primäre Hausfarbe (Typologo, Headlines, Basis). */
+  --color-brand-anthracite: #4a4a4a; /** HG Anthrazit – primäre Hausfarbe (Fließtext, neutrale Flächen). */
+  --color-blue-tint-20: #ced4da; /** HG Blau, 20 % Tonwert. */
+  --color-blue-tint-40: #9ca9b5; /** HG Blau, 40 % Tonwert. */
+  --color-blue-tint-60: #6b7d8f; /** HG Blau, 60 % Tonwert. */
+  --color-blue-tint-80: #39526a; /** HG Blau, 80 % Tonwert. */
+  --color-anthracite-tint-20: #dbdbdb; /** HG Anthrazit, 20 % Tonwert. */
+  --color-anthracite-tint-40: #b7b7b7; /** HG Anthrazit, 40 % Tonwert. */
+  --color-anthracite-tint-60: #929292; /** HG Anthrazit, 60 % Tonwert. */
+  --color-anthracite-tint-80: #6e6e6e; /** HG Anthrazit, 80 % Tonwert. */
+  --color-warm-brown: #ab634d; /** Warm-Brown (Sekundär). */
+  --color-warm-active-red: #f44242; /** Aktiv-Rot (Sekundär, Themenbereich Ausbildung). */
+  --color-warm-pink: #f8a3a1; /** Warm-Pink (Sekundär). */
+  --color-warm-orange: #fa761e; /** Warm-Orange (Sekundär). */
+  --color-warm-yellow: #ffbb4c; /** Warm-Yellow (Sekundär). */
+  --color-cool-blue: #2a7595; /** Cool-Blue (Sekundär). */
+  --color-cool-green: #61908a; /** Cool-Green (Sekundär). */
+  --color-cool-mint: #6ec3a6; /** Cool-Mint (Sekundär, Themenbereich Ausbildung). */
+  --color-cool-turquoise: #60ccd9; /** Cool-Turquoise (Sekundär). */
+  --color-neutral-white: #ffffff; /** Weiß. */
+  --color-neutral-black: #000000; /** Schwarz (100 % – einfarbige Logo-Variante). */
+  --color-action-primary-hover: #c00023; /** Primäre Aktion, Hover. */
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px; /** Vollrund – Kreisform als markantes grafisches Element (siehe Design Guide S. 35). */
+  --shadow-sm: 0px 1px 2px 0px #08274514; /** Dezenter Schatten. */
+  --shadow-md: 0px 4px 12px 0px #0827451f; /** Karten / erhöhte Flächen. */
+  --shadow-lg: 0px 12px 32px 0px #08274529; /** Overlays / Dialoge. */
+  --spacing-0: 0px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 24px;
+  --spacing-6: 32px;
+  --spacing-7: 48px;
+  --spacing-8: 64px;
+  --spacing-9: 96px;
+  --spacing-10: 128px;
+  --size-container-sm: 640px;
+  --size-container-md: 768px;
+  --size-container-lg: 1024px;
+  --size-container-xl: 1280px;
+  --font-family-sans: 'Suisse Intl', Arial, 'Helvetica Neue', Helvetica, sans-serif; /** Primäre Hausschrift (Suisse Int'l). Für Headlines, Copy, UI. */
+  --font-family-serif: 'Suisse Works', Georgia, 'Times New Roman', serif; /** Antiqua-Begleitschrift (Suisse Works) – Subheadlines / Zitate. */
+  --font-family-fallback: Arial, 'Helvetica Neue', Helvetica, sans-serif; /** Alternative Hausschrift (Arial) – Office / Systeme ohne Suisse. */
+  --font-weight-thin: 100;
+  --font-weight-ultralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-book: 450;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 36px;
+  --font-size-4xl: 48px;
+  --font-size-5xl: 64px;
+  --font-line-height-tight: 1.1;
+  --font-line-height-heading: 1.2;
+  --font-line-height-snug: 1.35;
+  --font-line-height-body: 1.6;
+  --font-letter-spacing-tight: -0.01em;
+  --font-letter-spacing-normal: 0em;
+  --font-letter-spacing-wide: 0.04em;
+  --color-text-heading: var(--color-brand-blue); /** Überschriften / Typologo-Blau. */
+  --color-text-body: var(--color-brand-anthracite); /** Fließtext. */
+  --color-text-muted: var(--color-anthracite-tint-60); /** Sekundärer / gedämpfter Text. */
+  --color-text-on-dark: var(--color-neutral-white); /** Text auf dunklem Grund. */
+  --color-text-accent: var(--color-brand-red); /** Hervorhebung / Akzenttext. */
+  --color-background-default: var(--color-neutral-white); /** Standard-Hintergrund. */
+  --color-background-subtle: var(--color-anthracite-tint-20); /** Dezente Fläche / Sektionshintergrund. */
+  --color-background-inverse: var(--color-brand-blue); /** Dunkler Hintergrund (Text wird weiß). */
+  --color-background-accent: var(--color-brand-red); /** Akzentfläche. */
+  --color-border-default: var(--color-anthracite-tint-40); /** Standard-Rahmen / Trennlinie. */
+  --color-border-strong: var(--color-brand-anthracite); /** Kräftiger Rahmen. */
+  --color-action-primary: var(--color-brand-red); /** Primäre Aktion / Button. */
+  --color-action-secondary: var(--color-brand-blue); /** Sekundäre Aktion / Button. */
+  --color-action-secondary-hover: var(--color-blue-tint-80); /** Sekundäre Aktion, Hover. */
+  --color-action-on-action: var(--color-neutral-white); /** Text/Icon auf Aktionsflächen. */
+  --color-feedback-info: var(--color-cool-blue); /** Hinweis / Info. */
+  --color-feedback-success: var(--color-cool-mint); /** Erfolg. */
+  --color-feedback-warning: var(--color-warm-yellow); /** Warnung. */
+  --color-feedback-danger: var(--color-warm-active-red); /** Fehler / Gefahr. */
+}

@@ -1,0 +1,60 @@
+---
+import { withBase } from '../../lib/site';
+
+const leistungen = [
+  {
+    icon: '/icons/waermepumpe.svg',
+    title: 'Heizung',
+    text:
+      'Ob Wärmepumpe, moderne Brennwerttechnik oder die Modernisierung Ihrer bestehenden Anlage: Wir finden die Lösung, die zu Ihrem Gebäude passt – und halten sie mit regelmäßiger Wartung effizient.',
+    link: 'Heizung',
+  },
+  {
+    icon: '/icons/sanitaer.svg',
+    title: 'Sanitär & Bad',
+    text:
+      'Vom tropfenden Wasserhahn bis zum barrierefreien Komfortbad: Wir übernehmen Reparatur, Installation und Badsanierung – inklusive Qualitätssicherung für Ihr Trinkwasser.',
+    link: 'Sanitär & Bad',
+  },
+  {
+    icon: '/icons/lueftung.svg',
+    title: 'Lüftung & Klima',
+    text:
+      'Frische Luft ohne Wärmeverlust: Wir planen und installieren kontrollierte Wohnraumlüftung mit Wärmerückgewinnung und Klimatechnik für heiße Tage – energieeffizient und leise.',
+    link: 'Lüftung & Klima',
+  },
+  {
+    icon: '/icons/service.svg',
+    title: 'Service & Wartung',
+    text:
+      'Einbauen ist die halbe Arbeit. Mit Wartung, täglichem Notdienst und digitaler Fernüberwachung halten wir Ihre Anlagen dauerhaft am Laufen – oft erkennen wir Störungen, bevor Sie sie bemerken.',
+    link: 'Service & Wartung',
+  },
+];
+---
+
+<section class="section section--subtle" aria-labelledby="leistungen-title">
+  <div class="container">
+    <div class="rb-section-head rb-section-head--center">
+      <span class="hb-badge hb-badge--cool">Unsere Gewerke</span>
+      <h2 id="leistungen-title">Alle Gewerke unter einem Dach</h2>
+      <p class="rb-lead">
+        Heizung, Sanitär und Lüftung greifen in jedem Gebäude ineinander – wer sie zusammen denkt,
+        baut effizienter, saniert schlauer und spart im Betrieb. Genau das ist unser Ansatz:
+        alles geplant, installiert und gewartet aus einer Hand.
+      </p>
+      <div class="rb-rule"></div>
+    </div>
+
+    <div class="hb-grid hb-grid--2 rb-mt-6">
+      {leistungen.map((l) => (
+        <article class="hb-card">
+          <img class="hb-card__icon" src={withBase(l.icon)} alt="" width="48" height="48" />
+          <h3 class="hb-card__title">{l.title}</h3>
+          <p class="hb-card__text">{l.text}</p>
+          <a class="rb-card-link" href="#" aria-disabled="true">{l.link}</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

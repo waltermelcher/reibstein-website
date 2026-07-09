@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
+import Weiche from '../components/sections/Weiche.astro';
+import Leistungen from '../components/sections/Leistungen.astro';
+import Technik from '../components/sections/Technik.astro';
+import Karriere from '../components/sections/Karriere.astro';
+import HerbertGruppe from '../components/sections/HerbertGruppe.astro';
+import Kontakt from '../components/sections/Kontakt.astro';
+import { site, kontaktNauheim } from '../lib/site';
+
+// Strukturierte Daten (LocalBusiness). Adresse/Telefon = Bestandsdaten – vor
+// Veröffentlichung verifizieren; ggf. zweiten Eintrag für Mainz ergänzen.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'PlumbingBusiness',
+  name: site.legalName,
+  description: site.description,
+  telephone: kontaktNauheim.telefon,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: kontaktNauheim.strasse,
+    postalCode: '64569',
+    addressLocality: 'Nauheim',
+    addressCountry: 'DE',
+  },
+  areaServed: ['Nauheim', 'Mainz'],
+  parentOrganization: { '@type': 'Organization', name: 'Herbert Gruppe', url: site.herbertGruppeUrl },
+};
+---
+
+<Base>
+  <Header />
+  <main>
+    <Hero />
+    <Weiche />
+    <Leistungen />
+    <Technik />
+    <Karriere />
+    <HerbertGruppe />
+    <Kontakt />
+  </main>
+  <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+</Base>

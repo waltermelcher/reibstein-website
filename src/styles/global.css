@@ -1,0 +1,9 @@
+/**
+ * Globale Stil-Einbindung.
+ * Reihenfolge gemäß Herbert Design System: tokens → base → components → (Projekt-Glow-Up).
+ * Fonts: Suisse Intl sind lizenzpflichtig und nicht enthalten → Arial-Fallback (DS-konform).
+ */
+@import './ds/tokens.css';
+@import './ds/base.css';
+@import './ds/components.css';
+@import './site.css';

@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import { site, withBase } from '../lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = site.title, description = site.description } = Astro.props;
+const productionHosts = JSON.stringify(site.productionHosts);
+const faviconHref = withBase('/brand/reibstein-logo.png');
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--
+      Automatische Indexierungssteuerung:
+      Standard = noindex,nofollow. Nur wenn der Host eine echte Produktionsdomain ist
+      (site.productionHosts), wird auf index,follow umgeschaltet. Vorschau/Staging
+      (*.github.io, localhost, IPs …) bleibt damit automatisch von der Indexierung
+      ausgeschlossen – ohne manuelles Umstellen.
+    -->
+    <meta name="robots" content="noindex,nofollow" id="robots-meta" />
+    <script is:inline define:vars={{ productionHosts }}>
+      (function () {
+        try {
+          var hosts = JSON.parse(productionHosts);
+          if (hosts.indexOf(window.location.hostname) !== -1) {
+            var m = document.getElementById('robots-meta');
+            if (m) m.setAttribute('content', 'index,follow');
+          }
+        } catch (e) {
+          /* im Zweifel noindex belassen */
+        }
+      })();
+    </script>
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href={faviconHref} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#082745" />
+  </head>
+  <body>
+    <a class="rb-skip" href="#hauptinhalt">Zum Inhalt springen</a>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,59 @@
+---
+import { withBase } from '../../lib/site';
+
+const points = [
+  {
+    icon: '/icons/notdienst.svg',
+    title: 'Täglicher Notdienst',
+    text: 'Im Ernstfall schnell für Sie da.',
+  },
+  {
+    icon: '/icons/fernueberwachung.svg',
+    title: 'Fernüberwachung',
+    text: 'Ihre Anlage meldet Störungen frühzeitig und automatisch.',
+  },
+  {
+    icon: '/icons/sanitaer.svg',
+    title: 'Trinkwasser-Qualitätssicherung',
+    text: 'Geprüfte Wasserqualität für Ihr Gebäude.',
+  },
+];
+---
+
+<section class="section section--inverse rb-on-dark" aria-labelledby="technik-title">
+  <div class="container">
+    <div class="rb-feature-split">
+      <div>
+        <span class="hb-badge">Technik-Vorsprung</span>
+        <h2 id="technik-title">Störungen erkennen, bevor sie zum Ausfall werden</h2>
+        <p class="rb-lead">
+          Moderne Haustechnik kann mehr, als nur zu funktionieren – sie meldet sich, bevor etwas
+          ausfällt. Mit unserer Fernüberwachung behalten wir Ihre Anlagen digital im Blick:
+          Störungen werden automatisch erkannt und gemeldet, häufig bevor Sie zu Hause oder im
+          Betrieb etwas davon bemerken. Und sollte doch einmal etwas Unvorhergesehenes passieren,
+          ist unser Notdienst täglich für Sie erreichbar.
+        </p>
+
+        <ul class="rb-points">
+          {points.map((p) => (
+            <li class="rb-point">
+              <span class="rb-point__icon"><img src={withBase(p.icon)} alt="" width="30" height="30" /></span>
+              <span>
+                <span class="rb-point__title">{p.title}</span>
+                <p class="rb-point__text">{p.text}</p>
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="rb-actions">
+          <a class="hb-btn hb-btn--primary" href="#">Mehr zu Service &amp; Wartung</a>
+        </div>
+      </div>
+
+      <div class="rb-feature-media">
+        <img src={withBase('/images/technik.webp')} alt="Monteur bei der Wartung einer Lüftungsanlage" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>

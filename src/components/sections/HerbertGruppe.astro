@@ -1,0 +1,31 @@
+---
+import { site, withBase } from '../../lib/site';
+---
+
+<section class="section section--subtle" aria-labelledby="gruppe-title">
+  <div class="container">
+    <div class="rb-gruppe">
+      <div>
+        <img class="rb-gruppe__logo" src={withBase('/brand/herbert-gruppe-logo.svg')} alt="Herbert Gruppe" width="160" height="40" />
+        <span class="hb-badge hb-badge--cool">Verbund</span>
+        <h2 id="gruppe-title">Lokaler Betrieb, starker Verbund</h2>
+        <p class="rb-lead">
+          Seit 1978 gehört die Herbert Reibstein GmbH zur Herbert Gruppe – einem Verbund von
+          8 Betrieben an 5 Standorten in der Rhein-Main-Neckar-Region. Für Sie heißt das: Sie
+          arbeiten mit einem Fachbetrieb vor Ort, der kurze Wege und feste Ansprechpartner bietet.
+          Und wenn Ihr Projekt einmal mehr braucht als Heizung, Sanitär und Lüftung, steht dahinter
+          das komplette Spektrum der Gebäudetechnik.
+        </p>
+        <div class="rb-actions">
+          <a class="hb-btn hb-btn--outline" href={site.herbertGruppeUrl} target="_blank" rel="noopener">
+            Herbert Gruppe – mehr erfahren ↗
+          </a>
+        </div>
+      </div>
+
+      <div class="rb-gruppe__media">
+        <img src={withBase('/images/herbert-gruppe-standorte.webp')} alt="Standorte der Herbert Gruppe in der Rhein-Main-Neckar-Region" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>

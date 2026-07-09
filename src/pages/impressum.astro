@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site, withBase } from '../lib/site';
+---
+
+<Base title={`Impressum | ${site.name}`} description="Impressum der Herbert Reibstein GmbH.">
+  <Header />
+  <main class="section" id="hauptinhalt">
+    <div class="container rb-narrow">
+      <span class="hb-badge">Rechtliches</span>
+      <h1>Impressum</h1>
+      <p class="rb-lead">
+        <span class="rb-placeholder">Dummytext</span> — Platzhalterinhalte. Vor Veröffentlichung
+        durch rechtssichere Angaben ersetzen (Handelsregister, USt-IdNr., Geschäftsführung,
+        verantwortliche Person nach § 18 MStV).
+      </p>
+
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <p>
+        Herbert Reibstein GmbH<br />
+        Musterstraße 1<br />
+        64569 Nauheim<br />
+        <span class="rb-placeholder">Platzhalter-Adresse</span>
+      </p>
+
+      <h2>Vertreten durch</h2>
+      <p>Geschäftsführung: Max Mustermann <span class="rb-placeholder">Platzhalter</span></p>
+
+      <h2>Kontakt</h2>
+      <p>
+        Telefon: {site.phone}<br />
+        E-Mail: info@reibstein.de <span class="rb-placeholder">zu bestätigen</span>
+      </p>
+
+      <h2>Registereintrag</h2>
+      <p>
+        Eintragung im Handelsregister · Registergericht: Musterstadt · Registernummer: HRB 00000
+        <span class="rb-placeholder">Platzhalter</span>
+      </p>
+
+      <h2>Umsatzsteuer-ID</h2>
+      <p>USt-IdNr. gemäß § 27 a UStG: DE000000000 <span class="rb-placeholder">Platzhalter</span></p>
+
+      <p class="rb-mt-6"><a href={withBase('/')}>← Zurück zur Startseite</a></p>
+    </div>
+  </main>
+  <Footer />
+</Base>

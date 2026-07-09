@@ -1,0 +1,61 @@
+/**
+ * Herbert Design System – Basis (Reset + Grundtypografie)
+ * Baut ausschließlich auf den generierten Tokens (build/css/tokens.css) auf.
+ * Reihenfolge im <head>:  tokens.css → fonts.css → base.css → components.css
+ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-body);
+  color: var(--color-text-body);
+  background: var(--color-background-default);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-family-sans);
+  color: var(--color-text-heading);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-tight);
+  margin: 0 0 var(--spacing-4);
+}
+h1 { font-size: var(--font-size-4xl); font-weight: var(--font-weight-bold); }
+h2 { font-size: var(--font-size-3xl); font-weight: var(--font-weight-semibold); }
+h3 { font-size: var(--font-size-xl);  font-weight: var(--font-weight-semibold); }
+h4 { font-size: var(--font-size-lg);  font-weight: var(--font-weight-medium); }
+
+/* „Antique"-Subheadline / Zitat – Suisse Works kursiv */
+.subheadline {
+  font-family: var(--font-family-serif);
+  font-style: italic;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-body);
+  font-size: var(--font-size-xl);
+  margin: 0 0 var(--spacing-4);
+}
+
+p { margin: 0 0 var(--spacing-4); }
+
+a { color: var(--color-text-accent); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--color-action-primary-hover); }
+
+small, .text-muted { color: var(--color-text-muted); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+hr { border: 0; border-top: 1px solid var(--color-border-default); margin: var(--spacing-6) 0; }
+
+/* Layout-Hilfen */
+.container { width: 100%; max-width: var(--size-container-xl); margin-inline: auto; padding-inline: var(--spacing-5); }
+.section  { padding-block: var(--spacing-9); }
+.section--subtle { background: var(--color-background-subtle); }
+.section--inverse { background: var(--color-background-inverse); color: var(--color-text-on-dark); }
+.section--inverse h1, .section--inverse h2, .section--inverse h3 { color: var(--color-text-on-dark); }

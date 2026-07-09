@@ -1,0 +1,136 @@
+/**
+ * Reibstein Glow-Up – Projekt-Stilebene.
+ * Regel: NUR Design-System-Tokens (var(--…)) verwenden – keine eigenen Hex-Farben.
+ * Eigene Klassen sind mit `rb-` gepräfixt und dienen ausschließlich der Seiten-Komposition
+ * (Layout/Rhythmus), nicht der Neudefinition des Marken-Looks.
+ */
+
+/* ---------- Grundrhythmus & Typo-Skalierung (responsiv, auf Token-Basis) ---------- */
+html { scroll-behavior: smooth; }
+body { line-height: 1.6; }
+h1, h2, h3, h4 { letter-spacing: var(--font-letter-spacing-tight); line-height: var(--font-line-height-heading); }
+
+.rb-eyebrow { display: inline-block; margin-bottom: var(--spacing-4); }
+
+/* Sektionsüberschrift + Einleitung zentriert, angenehme Lesebreite */
+.rb-section-head { max-width: 62ch; }
+.rb-section-head--center { margin-inline: auto; text-align: center; }
+.rb-lead { font-size: var(--font-size-lg); color: var(--color-text-muted); }
+.section--inverse .rb-lead { color: var(--color-blue-tint-20); }
+
+/* Feiner Token-basierter Trenner */
+.rb-rule { height: 4px; width: 56px; border-radius: var(--radius-full); background: var(--color-brand-red); margin: var(--spacing-5) 0 0; }
+.rb-section-head--center .rb-rule { margin-inline: auto; }
+
+/* ---------- Sticky Header + Skip-Link ---------- */
+.rb-header { position: sticky; top: 0; z-index: 50; box-shadow: var(--shadow-sm); }
+.rb-skip { position: absolute; left: -9999px; top: 0; background: var(--color-brand-blue); color: var(--color-text-on-dark); padding: var(--spacing-3) var(--spacing-4); border-radius: var(--radius-md); z-index: 100; }
+.rb-skip:focus { left: var(--spacing-4); top: var(--spacing-4); }
+
+/* Notdienst-Telefon-Link in der Navigation */
+.rb-nav-phone { display: inline-flex; align-items: center; gap: var(--spacing-2); font-weight: var(--font-weight-semibold); color: var(--color-text-heading); text-decoration: none; white-space: nowrap; }
+.rb-nav-phone:hover { color: var(--color-text-accent); }
+.rb-nav-phone small { display: block; font-weight: var(--font-weight-regular); font-size: var(--font-size-xs); color: var(--color-text-muted); }
+.rb-nav-actions { display: flex; align-items: center; gap: var(--spacing-5); }
+
+/* Mobile-Menü (Burger) – DS blendet .hb-nav__links < 640px aus; hier ergänzt */
+.rb-nav-toggle { display: none; background: transparent; border: 0; padding: var(--spacing-2); cursor: pointer; color: var(--color-text-heading); }
+.rb-nav-toggle svg { display: block; }
+@media (max-width: 640px) {
+  .rb-nav-toggle { display: inline-flex; }
+  .rb-nav-actions .hb-btn { display: none; }
+  .hb-nav[data-open='true'] .hb-nav__links {
+    display: flex; flex-direction: column; gap: var(--spacing-4);
+    position: absolute; left: 0; right: 0; top: 100%;
+    background: var(--color-background-default);
+    border-bottom: 1px solid var(--color-border-default);
+    padding: var(--spacing-5); box-shadow: var(--shadow-md);
+  }
+  .hb-nav { position: relative; flex-wrap: wrap; }
+}
+
+/* ---------- Hero (Vollbild-Foto + Overlay) ---------- */
+.rb-hero { min-height: 78vh; display: flex; align-items: center; text-align: left; }
+.rb-hero h1 { font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-5xl)); max-width: 20ch; }
+.rb-hero p { font-size: var(--font-size-xl); max-width: 60ch; }
+.rb-hero__career { display: inline-block; margin-top: var(--spacing-5); color: var(--color-text-on-dark); text-decoration: underline; text-underline-offset: 3px; opacity: .9; }
+.rb-hero__career:hover { color: var(--color-text-on-dark); opacity: 1; }
+
+/* ---------- Kachel mit Foto (Zielgruppen-Weiche) ---------- */
+.rb-tile { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+.rb-tile__media { aspect-ratio: 16 / 10; overflow: hidden; }
+.rb-tile__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.rb-tile:hover .rb-tile__media img { transform: scale(1.04); }
+.rb-tile__body { padding: var(--spacing-6); display: flex; flex-direction: column; gap: var(--spacing-2); flex: 1; }
+.rb-tile__body .hb-card__text { flex: 1; }
+.rb-tile__link { margin-top: var(--spacing-4); font-weight: var(--font-weight-semibold); color: var(--color-text-accent); text-decoration: none; }
+.rb-tile__link:hover { color: var(--color-action-primary-hover); }
+.rb-tile__link[aria-disabled='true']::after { content: ' →'; }
+
+/* ---------- Leistungs-Karten (Icon + Text + Link) ---------- */
+.rb-card-link { margin-top: var(--spacing-4); display: inline-block; font-weight: var(--font-weight-semibold); color: var(--color-text-accent); text-decoration: none; }
+.rb-card-link:hover { color: var(--color-action-primary-hover); }
+.rb-card-link::after { content: ' →'; }
+
+/* ---------- Technik-Differenzierer (dunkle Sektion, Icon-Punkte) ---------- */
+.rb-feature-split { display: grid; grid-template-columns: 1.1fr .9fr; gap: var(--spacing-8); align-items: center; }
+@media (max-width: 860px) { .rb-feature-split { grid-template-columns: 1fr; } }
+.rb-feature-media img { border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+.rb-points { list-style: none; margin: var(--spacing-6) 0 var(--spacing-6); padding: 0; display: grid; gap: var(--spacing-5); }
+.rb-point { display: flex; gap: var(--spacing-4); align-items: flex-start; }
+.rb-point__icon { flex: 0 0 auto; width: 48px; height: 48px; border-radius: var(--radius-full); background: var(--color-neutral-white); display: inline-flex; align-items: center; justify-content: center; }
+.rb-point__icon img { width: 30px; height: 30px; }
+.rb-point__title { font-weight: var(--font-weight-semibold); color: var(--color-text-on-dark); margin: 0 0 var(--spacing-1); }
+.rb-point__text { margin: 0; color: var(--color-blue-tint-20); }
+
+/* ---------- Karriere-Teaser (Akzentfläche, abgesetzt) ---------- */
+.rb-karriere { background: var(--color-background-inverse); color: var(--color-text-on-dark); position: relative; overflow: hidden; }
+.rb-karriere__inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: var(--spacing-8); align-items: center; }
+@media (max-width: 860px) { .rb-karriere__inner { grid-template-columns: 1fr; } }
+.rb-karriere h2, .rb-karriere h3 { color: var(--color-text-on-dark); }
+.rb-karriere p { color: var(--color-blue-tint-20); }
+.rb-karriere__media img { border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+.rb-actions { display: flex; flex-wrap: wrap; gap: var(--spacing-3); margin-top: var(--spacing-6); }
+
+/* Outline-Button auf dunklem Grund lesbar (nur Token-Farben) */
+.rb-on-dark .hb-btn--outline { color: var(--color-text-on-dark); border-color: var(--color-text-on-dark); }
+.rb-on-dark .hb-btn--outline:hover { background: var(--color-text-on-dark); color: var(--color-brand-blue); }
+
+/* ---------- Herbert Gruppe ---------- */
+.rb-gruppe { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-8); align-items: center; }
+@media (max-width: 860px) { .rb-gruppe { grid-template-columns: 1fr; } }
+.rb-gruppe__logo { height: 40px; width: auto; margin-bottom: var(--spacing-5); }
+.rb-gruppe__media img { border-radius: var(--radius-lg); background: var(--color-neutral-white); padding: var(--spacing-5); box-shadow: var(--shadow-sm); }
+
+/* ---------- Kontakt ---------- */
+.rb-kontakt { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-8); align-items: start; }
+@media (max-width: 860px) { .rb-kontakt { grid-template-columns: 1fr; } }
+.rb-kontakt__card { display: grid; grid-template-columns: auto 1fr; gap: var(--spacing-5); align-items: center; }
+.rb-kontakt__portrait { width: 96px; height: 96px; border-radius: var(--radius-full); object-fit: cover; box-shadow: var(--shadow-sm); }
+.rb-contact-list { list-style: none; margin: var(--spacing-4) 0 0; padding: 0; display: grid; gap: var(--spacing-2); }
+.rb-contact-list li { display: flex; gap: var(--spacing-3); }
+.rb-contact-list a { color: var(--color-text-accent); text-decoration: none; }
+.rb-contact-list a:hover { color: var(--color-action-primary-hover); }
+
+/* ---------- Platzhalter-Markierung (Dev-Hinweis für offene Inhalte) ---------- */
+.rb-placeholder {
+  display: inline-block; font-size: var(--font-size-xs); font-weight: var(--font-weight-semibold);
+  text-transform: uppercase; letter-spacing: var(--font-letter-spacing-wide);
+  color: var(--color-brand-blue); background: var(--color-feedback-warning);
+  padding: var(--spacing-1) var(--spacing-2); border-radius: var(--radius-sm);
+}
+
+/* ---------- Footer ---------- */
+.rb-footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--spacing-7); }
+@media (max-width: 860px) { .rb-footer__grid { grid-template-columns: 1fr; gap: var(--spacing-6); } }
+.rb-footer__brand img { height: 48px; width: auto; margin-bottom: var(--spacing-4); filter: brightness(0) invert(1); }
+.rb-footer h4 { color: var(--color-text-on-dark); margin-bottom: var(--spacing-4); }
+.rb-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--spacing-2); }
+.rb-footer a { text-decoration: none; opacity: .85; }
+.rb-footer a:hover { opacity: 1; text-decoration: underline; }
+.rb-footer__bottom { margin-top: var(--spacing-7); padding-top: var(--spacing-5); border-top: 1px solid var(--color-blue-tint-80); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-3); opacity: .8; }
+
+/* ---------- Utilities ---------- */
+.rb-stack > * + * { margin-top: var(--spacing-4); }
+.rb-narrow { max-width: var(--size-container-md); margin-inline: auto; }
+.rb-mt-6 { margin-top: var(--spacing-6); }

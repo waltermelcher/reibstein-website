@@ -1,0 +1,48 @@
+---
+import { site, kontaktNauheim, withBase } from '../lib/site';
+const year = 2026;
+---
+
+<footer class="hb-footer rb-footer">
+  <div class="container">
+    <div class="rb-footer__grid">
+      <div class="rb-footer__brand">
+        <img src={withBase('/brand/reibstein-logo.png')} alt={site.legalName} width="192" height="26" />
+        <p style="opacity:.85; max-width: 42ch;">
+          Fachbetrieb für Heizung, Sanitär und Lüftung in Nauheim und Mainz.
+          Seit 1978 Teil der Herbert Gruppe.
+        </p>
+        <p style="opacity:.85;">
+          <a href={`tel:${kontaktNauheim.telefonHref}`}>{kontaktNauheim.telefon}</a>
+        </p>
+      </div>
+
+      <div>
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="#">Heizung</a></li>
+          <li><a href="#">Sanitär &amp; Bad</a></li>
+          <li><a href="#">Lüftung &amp; Klima</a></li>
+          <li><a href="#">Service &amp; Wartung</a></li>
+          <li><a href="#">Gewerbekunden</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="#">Karriere</a></li>
+          <li><a href={site.herbertGruppeUrl} target="_blank" rel="noopener">Herbert Gruppe ↗</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href={withBase('/impressum')}>Impressum</a></li>
+          <li><a href={withBase('/datenschutz')}>Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rb-footer__bottom">
+      <span>© {year} {site.legalName}</span>
+      <span>Heizung · Sanitär · Lüftung — Nauheim &amp; Mainz</span>
+    </div>
+  </div>
+</footer>

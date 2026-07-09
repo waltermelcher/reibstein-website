@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 59.53 59.53">
+  <!-- Generator: Adobe Illustrator 29.3.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 151)  -->
+  <defs>
+    <style>
+      .st0 {
+        stroke: #0d2645;
+      }
+
+      .st0, .st1 {
+        fill: none;
+        stroke-miterlimit: 10;
+        stroke-width: 2.6px;
+      }
+
+      .st1 {
+        stroke: #e4002a;
+      }
+    </style>
+  </defs>
+  <line class="st1" x1="29.76" y1="12" x2="29.76" y2="47.53"/>
+  <g>
+    <line class="st1" x1="25.02" y1="12.99" x2="29.76" y2="17.73"/>
+    <line class="st1" x1="34.51" y1="12.98" x2="29.76" y2="17.73"/>
+  </g>
+  <g>
+    <line class="st1" x1="34.51" y1="46.65" x2="29.76" y2="41.91"/>
+    <line class="st1" x1="25.02" y1="46.66" x2="29.76" y2="41.92"/>
+  </g>
+  <line class="st0" x1="17.16" y1="17.16" x2="42.29" y2="42.29"/>
+  <g>
+    <line class="st0" x1="14.54" y1="21.24" x2="21.24" y2="21.24"/>
+    <line class="st0" x1="21.24" y1="14.53" x2="21.24" y2="21.24"/>
+  </g>
+  <g>
+    <line class="st0" x1="44.99" y1="38.28" x2="38.28" y2="38.28"/>
+    <line class="st0" x1="38.29" y1="45" x2="38.29" y2="38.29"/>
+  </g>
+  <line class="st0" x1="42.36" y1="17.16" x2="17.24" y2="42.29"/>
+  <g>
+    <line class="st0" x1="38.28" y1="14.54" x2="38.28" y2="21.24"/>
+    <line class="st0" x1="45" y1="21.24" x2="38.29" y2="21.24"/>
+  </g>
+  <g>
+    <line class="st0" x1="21.24" y1="44.99" x2="21.24" y2="38.28"/>
+    <line class="st0" x1="14.53" y1="38.29" x2="21.24" y2="38.29"/>
+  </g>
+  <line class="st1" x1="47.24" y1="29.77" x2="11.71" y2="29.77"/>
+  <g>
+    <line class="st1" x1="12.44" y1="34.5" x2="17.18" y2="29.76"/>
+    <line class="st1" x1="12.44" y1="25.01" x2="17.18" y2="29.76"/>
+  </g>
+  <g>
+    <line class="st1" x1="46.38" y1="25.03" x2="41.64" y2="29.77"/>
+    <line class="st1" x1="46.38" y1="34.52" x2="41.64" y2="29.77"/>
+  </g>
+</svg>
