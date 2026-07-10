@@ -26,20 +26,39 @@ h1, h2, h3, h4 { letter-spacing: var(--font-letter-spacing-tight); line-height: 
 .rb-header { top: 0; left: 0; right: 0; z-index: 50; transition: background-color .25s ease, box-shadow .25s ease; }
 .rb-header .hb-nav { background: transparent; border-bottom: 0; }
 
-/* Overlay-Variante: liegt transparent über dem Foto-Hero, dockt beim Scrollen in Blau an */
+/* Overlay-Variante: liegt transparent über dem Foto-Hero, wird beim Scrollen zur hellen Leiste */
 .rb-header--overlay { position: fixed; background: transparent; }
-.rb-header--overlay.is-scrolled { background: var(--color-brand-blue); box-shadow: var(--shadow-md); }
+.rb-header--overlay.is-scrolled { background: var(--color-neutral-white); box-shadow: var(--shadow-md); }
 
-/* Solide Variante: Seiten ohne Foto-Hero (z. B. Impressum) – nimmt Platz im Fluss ein */
-.rb-header--solid { position: sticky; background: var(--color-brand-blue); box-shadow: var(--shadow-sm); }
+/* Solide Variante: Seiten ohne Foto-Hero (z. B. Impressum) – helle Leiste, nimmt Platz im Fluss ein */
+.rb-header--solid { position: sticky; background: var(--color-neutral-white); box-shadow: var(--shadow-sm); }
 
-/* Alles weiß auf dunklem/transparentem Grund */
+/* --- Zustand A: transparent über Hero → weiß --- */
 .rb-header .hb-nav__links a,
 .rb-header .rb-nav-item,
 .rb-header .rb-nav-toggle { color: var(--color-text-on-dark); }
 .rb-header .hb-nav__links a:hover,
 .rb-header .rb-nav-item:hover { color: var(--color-text-on-dark); opacity: .7; }
-/* Logo ist bereits die helle SVG-Variante (weißer Text + rotes Signet) – kein Filter nötig. */
+
+/* --- Zustand B: helle Leiste (gescrollt oder solide) → dunkle Schrift + dunkles Logo --- */
+.rb-header--overlay.is-scrolled .hb-nav__links a,
+.rb-header--overlay.is-scrolled .rb-nav-item,
+.rb-header--overlay.is-scrolled .rb-nav-toggle,
+.rb-header--solid .hb-nav__links a,
+.rb-header--solid .rb-nav-item,
+.rb-header--solid .rb-nav-toggle { color: var(--color-text-heading); }
+.rb-header--overlay.is-scrolled .hb-nav__links a:hover,
+.rb-header--overlay.is-scrolled .rb-nav-item:hover,
+.rb-header--solid .hb-nav__links a:hover,
+.rb-header--solid .rb-nav-item:hover { color: var(--color-text-accent); opacity: 1; }
+
+/* Logo-Wechsel: hell (weiß) über Hero, dunkel auf heller Leiste */
+.rb-logo { display: block; }
+.rb-logo--dark { display: none; }
+.rb-header--overlay.is-scrolled .rb-logo--light,
+.rb-header--solid .rb-logo--light { display: none; }
+.rb-header--overlay.is-scrolled .rb-logo--dark,
+.rb-header--solid .rb-logo--dark { display: block; }
 
 .rb-skip { position: absolute; left: -9999px; top: 0; background: var(--color-brand-blue); color: var(--color-text-on-dark); padding: var(--spacing-3) var(--spacing-4); border-radius: var(--radius-md); z-index: 100; }
 .rb-skip:focus { left: var(--spacing-4); top: var(--spacing-4); }
@@ -48,6 +67,8 @@ h1, h2, h3, h4 { letter-spacing: var(--font-letter-spacing-tight); line-height: 
 .rb-nav-actions { display: flex; align-items: center; gap: var(--spacing-4); }
 .rb-nav-item { font-weight: var(--font-weight-semibold); text-decoration: none; white-space: nowrap; transition: opacity .15s ease; }
 .rb-nav-sep { width: 1px; height: 20px; background: var(--color-text-on-dark); opacity: .35; }
+.rb-header--overlay.is-scrolled .rb-nav-sep,
+.rb-header--solid .rb-nav-sep { background: var(--color-border-default); opacity: 1; }
 
 /* Mobile-Menü (Burger) – nur < 640px; DS blendet .hb-nav__links dort aus */
 .rb-nav-toggle { display: none; background: transparent; border: 0; padding: var(--spacing-2); cursor: pointer; }

@@ -20,7 +20,8 @@ const navLinks = [
 <header class:list={['rb-header', solid ? 'rb-header--solid' : 'rb-header--overlay']} data-header>
   <nav class="hb-nav container" aria-label="Hauptnavigation" data-nav>
     <a class="hb-nav__brand rb-header__brand" href={withBase('/')} aria-label={`${site.legalName} – Startseite`}>
-      <img src={withBase('/brand/reibstein-logo-hr-light.png')} alt={site.legalName} width="294" height="40" />
+      <img class="rb-logo rb-logo--light" src={withBase('/brand/reibstein-logo-hr-light.png')} alt={site.legalName} width="294" height="40" />
+      <img class="rb-logo rb-logo--dark" src={withBase('/brand/reibstein-logo.png')} alt={site.legalName} width="294" height="40" />
     </a>
 
     <ul class="hb-nav__links">
