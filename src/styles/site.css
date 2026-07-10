@@ -39,7 +39,7 @@ h1, h2, h3, h4 { letter-spacing: var(--font-letter-spacing-tight); line-height: 
 .rb-header .rb-nav-toggle { color: var(--color-text-on-dark); }
 .rb-header .hb-nav__links a:hover,
 .rb-header .rb-nav-item:hover { color: var(--color-text-on-dark); opacity: .7; }
-.rb-header__brand img { filter: brightness(0) invert(1); }  /* weißes Logo über dem Hero */
+/* Logo ist bereits die helle SVG-Variante (weißer Text + rotes Signet) – kein Filter nötig. */
 
 .rb-skip { position: absolute; left: -9999px; top: 0; background: var(--color-brand-blue); color: var(--color-text-on-dark); padding: var(--spacing-3) var(--spacing-4); border-radius: var(--radius-md); z-index: 100; }
 .rb-skip:focus { left: var(--spacing-4); top: var(--spacing-4); }
@@ -137,7 +137,7 @@ h1, h2, h3, h4 { letter-spacing: var(--font-letter-spacing-tight); line-height: 
 /* ---------- Footer ---------- */
 .rb-footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--spacing-7); }
 @media (max-width: 860px) { .rb-footer__grid { grid-template-columns: 1fr; gap: var(--spacing-6); } }
-.rb-footer__brand img { height: 48px; width: auto; margin-bottom: var(--spacing-4); filter: brightness(0) invert(1); }
+.rb-footer__brand img { height: 48px; width: auto; margin-bottom: var(--spacing-4); }
 .rb-footer h4 { color: var(--color-text-on-dark); margin-bottom: var(--spacing-4); }
 .rb-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--spacing-2); }
 .rb-footer a { text-decoration: none; opacity: .85; }
