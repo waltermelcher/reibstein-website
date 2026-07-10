@@ -5,6 +5,24 @@
  * (Layout/Rhythmus), nicht der Neudefinition des Marken-Looks.
  */
 
+/* ==========================================================================
+   KANTIGE ECKEN (Radius 0) – wie herbert.de.
+   Alle Radius-Tokens auf 0 gesetzt; da das gesamte DS (Buttons, Badges, Karten,
+   Bilder, Icon-Flächen …) ausschließlich var(--radius-*) nutzt, werden dadurch
+   ALLE Elemente der Seite kantig.
+   >> Beim nächsten Design-Sync ins Design System übernehmen: in
+      Herbert-Design-System/tokens/radius.json alle Werte auf 0 setzen
+      (none/sm/md/lg/xl/full = 0) und neu bauen. Siehe DESIGN-SYNC-NOTES.md.
+   ========================================================================== */
+:root {
+  --radius-none: 0;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-full: 0;
+}
+
 /* ---------- Grundrhythmus & Typo-Skalierung (responsiv, auf Token-Basis) ---------- */
 html { scroll-behavior: smooth; }
 body { line-height: 1.6; }
