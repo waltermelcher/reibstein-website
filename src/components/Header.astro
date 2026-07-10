@@ -1,6 +1,12 @@
 ---
 import { site, kontaktNauheim, withBase } from '../lib/site';
 
+interface Props {
+  /** true = dauerhaft solide (z. B. Seiten ohne Foto-Hero). Sonst transparent über Hero. */
+  solid?: boolean;
+}
+const { solid = false } = Astro.props;
+
 // Menüpunkte sind bewusst Platzhalter (Unterseiten kommen später) -> href '#'.
 const navLinks = [
   { label: 'Heizung', href: '#' },
@@ -8,13 +14,12 @@ const navLinks = [
   { label: 'Lüftung & Klima', href: '#' },
   { label: 'Gewerbekunden', href: '#' },
   { label: 'Karriere', href: '#' },
-  { label: 'Kontakt', href: '#kontakt' },
 ];
 ---
 
-<header class="rb-header">
+<header class:list={['rb-header', solid ? 'rb-header--solid' : 'rb-header--overlay']} data-header>
   <nav class="hb-nav container" aria-label="Hauptnavigation" data-nav>
-    <a class="hb-nav__brand" href={withBase('/')} aria-label={`${site.legalName} – Startseite`}>
+    <a class="hb-nav__brand rb-header__brand" href={withBase('/')} aria-label={`${site.legalName} – Startseite`}>
       <img src={withBase('/brand/reibstein-logo.png')} alt={site.legalName} width="176" height="24" />
     </a>
 
@@ -25,11 +30,9 @@ const navLinks = [
     </ul>
 
     <div class="rb-nav-actions">
-      <a class="rb-nav-phone" href={`tel:${kontaktNauheim.telefonHref}`}>
-        <img src={withBase('/icons/notdienst.svg')} alt="" width="22" height="22" />
-        <span>{kontaktNauheim.telefon}<small>Notdienst &amp; Beratung</small></span>
-      </a>
-      <a class="hb-btn hb-btn--primary" href="#">Jetzt bewerben</a>
+      <a class="rb-nav-item" href={`tel:${kontaktNauheim.telefonHref}`}>Notdienst</a>
+      <span class="rb-nav-sep" aria-hidden="true"></span>
+      <a class="rb-nav-item" href="#kontakt">Kontakt</a>
       <button class="rb-nav-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" data-nav-toggle>
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="3" y1="6" x2="21" y2="6" />
@@ -45,12 +48,23 @@ const navLinks = [
   (function () {
     var nav = document.querySelector('[data-nav]');
     var btn = document.querySelector('[data-nav-toggle]');
-    if (!nav || !btn) return;
-    btn.addEventListener('click', function () {
-      var open = nav.getAttribute('data-open') === 'true';
-      nav.setAttribute('data-open', String(!open));
-      btn.setAttribute('aria-expanded', String(!open));
-      btn.setAttribute('aria-label', open ? 'Menü öffnen' : 'Menü schließen');
-    });
+    if (nav && btn) {
+      btn.addEventListener('click', function () {
+        var open = nav.getAttribute('data-open') === 'true';
+        nav.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+        btn.setAttribute('aria-label', open ? 'Menü öffnen' : 'Menü schließen');
+      });
+    }
+
+    // Transparente Overlay-Leiste beim Scrollen in Markenblau „andocken".
+    var header = document.querySelector('[data-header]');
+    if (header && header.classList.contains('rb-header--overlay')) {
+      var onScroll = function () {
+        header.classList.toggle('is-scrolled', window.scrollY > 24);
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
   })();
 </script>

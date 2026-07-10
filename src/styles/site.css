@@ -22,28 +22,42 @@ h1, h2, h3, h4 { letter-spacing: var(--font-letter-spacing-tight); line-height: 
 .rb-rule { height: 4px; width: 56px; border-radius: var(--radius-full); background: var(--color-brand-red); margin: var(--spacing-5) 0 0; }
 .rb-section-head--center .rb-rule { margin-inline: auto; }
 
-/* ---------- Sticky Header + Skip-Link ---------- */
-.rb-header { position: sticky; top: 0; z-index: 50; box-shadow: var(--shadow-sm); }
+/* ---------- Header (herbert.de-Stil: transparent über Hero, weiß) ---------- */
+.rb-header { top: 0; left: 0; right: 0; z-index: 50; transition: background-color .25s ease, box-shadow .25s ease; }
+.rb-header .hb-nav { background: transparent; border-bottom: 0; }
+
+/* Overlay-Variante: liegt transparent über dem Foto-Hero, dockt beim Scrollen in Blau an */
+.rb-header--overlay { position: fixed; background: transparent; }
+.rb-header--overlay.is-scrolled { background: var(--color-brand-blue); box-shadow: var(--shadow-md); }
+
+/* Solide Variante: Seiten ohne Foto-Hero (z. B. Impressum) – nimmt Platz im Fluss ein */
+.rb-header--solid { position: sticky; background: var(--color-brand-blue); box-shadow: var(--shadow-sm); }
+
+/* Alles weiß auf dunklem/transparentem Grund */
+.rb-header .hb-nav__links a,
+.rb-header .rb-nav-item,
+.rb-header .rb-nav-toggle { color: var(--color-text-on-dark); }
+.rb-header .hb-nav__links a:hover,
+.rb-header .rb-nav-item:hover { color: var(--color-text-on-dark); opacity: .7; }
+.rb-header__brand img { filter: brightness(0) invert(1); }  /* weißes Logo über dem Hero */
+
 .rb-skip { position: absolute; left: -9999px; top: 0; background: var(--color-brand-blue); color: var(--color-text-on-dark); padding: var(--spacing-3) var(--spacing-4); border-radius: var(--radius-md); z-index: 100; }
 .rb-skip:focus { left: var(--spacing-4); top: var(--spacing-4); }
 
-/* Notdienst-Telefon-Link in der Navigation */
-.rb-nav-phone { display: inline-flex; align-items: center; gap: var(--spacing-2); font-weight: var(--font-weight-semibold); color: var(--color-text-heading); text-decoration: none; white-space: nowrap; }
-.rb-nav-phone:hover { color: var(--color-text-accent); }
-.rb-nav-phone small { display: block; font-weight: var(--font-weight-regular); font-size: var(--font-size-xs); color: var(--color-text-muted); }
-.rb-nav-actions { display: flex; align-items: center; gap: var(--spacing-5); }
+/* Rechte Aktionen: „Notdienst · Kontakt" ohne Umrandung, mit dezentem Trenner */
+.rb-nav-actions { display: flex; align-items: center; gap: var(--spacing-4); }
+.rb-nav-item { font-weight: var(--font-weight-semibold); text-decoration: none; white-space: nowrap; transition: opacity .15s ease; }
+.rb-nav-sep { width: 1px; height: 20px; background: var(--color-text-on-dark); opacity: .35; }
 
-/* Mobile-Menü (Burger) – DS blendet .hb-nav__links < 640px aus; hier ergänzt */
-.rb-nav-toggle { display: none; background: transparent; border: 0; padding: var(--spacing-2); cursor: pointer; color: var(--color-text-heading); }
+/* Mobile-Menü (Burger) – nur < 640px; DS blendet .hb-nav__links dort aus */
+.rb-nav-toggle { display: none; background: transparent; border: 0; padding: var(--spacing-2); cursor: pointer; }
 .rb-nav-toggle svg { display: block; }
 @media (max-width: 640px) {
   .rb-nav-toggle { display: inline-flex; }
-  .rb-nav-actions .hb-btn { display: none; }
   .hb-nav[data-open='true'] .hb-nav__links {
     display: flex; flex-direction: column; gap: var(--spacing-4);
     position: absolute; left: 0; right: 0; top: 100%;
-    background: var(--color-background-default);
-    border-bottom: 1px solid var(--color-border-default);
+    background: var(--color-brand-blue);
     padding: var(--spacing-5); box-shadow: var(--shadow-md);
   }
   .hb-nav { position: relative; flex-wrap: wrap; }
