@@ -26,9 +26,15 @@ h1, h2, h3, h4 { letter-spacing: var(--font-letter-spacing-tight); line-height: 
 .rb-header { top: 0; left: 0; right: 0; z-index: 50; transition: background-color .25s ease, box-shadow .25s ease; }
 .rb-header .hb-nav { background: transparent; border-bottom: 0; }
 
-/* Overlay-Variante: liegt transparent über dem Foto-Hero, wird beim Scrollen zur hellen Leiste */
+/* Overlay-Variante: oben klar transparent über dem Hero; beim Scrollen leicht durchscheinend
+   (Frosted-Glass) statt deckend – Inhalt schimmert durch, Schrift bleibt lesbar. */
 .rb-header--overlay { position: fixed; background: transparent; }
-.rb-header--overlay.is-scrolled { background: var(--color-neutral-white); box-shadow: var(--shadow-md); }
+.rb-header--overlay.is-scrolled {
+  background: color-mix(in srgb, var(--color-neutral-white) 70%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+}
 
 /* Solide Variante: Seiten ohne Foto-Hero (z. B. Impressum) – helle Leiste, nimmt Platz im Fluss ein */
 .rb-header--solid { position: sticky; background: var(--color-neutral-white); box-shadow: var(--shadow-sm); }

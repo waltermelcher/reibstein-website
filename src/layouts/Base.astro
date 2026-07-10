@@ -9,7 +9,7 @@ interface Props {
 
 const { title = site.title, description = site.description } = Astro.props;
 const productionHosts = JSON.stringify(site.productionHosts);
-const faviconHref = withBase('/brand/reibstein-logo.png');
+const faviconHref = withBase('/favicon.svg');
 ---
 
 <!doctype html>
@@ -42,7 +42,7 @@ const faviconHref = withBase('/brand/reibstein-logo.png');
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="icon" type="image/png" href={faviconHref} />
+    <link rel="icon" type="image/svg+xml" href={faviconHref} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />

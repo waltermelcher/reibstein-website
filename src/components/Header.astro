@@ -58,14 +58,19 @@ const navLinks = [
       });
     }
 
-    // Transparente Overlay-Leiste beim Scrollen in Markenblau „andocken".
+    // Overlay-Leiste bleibt transparent; Logo/Schrift wechseln von Weiß auf Dunkel,
+    // sobald hinter der Leiste ein heller Bereich liegt (Hero durchgescrollt).
     var header = document.querySelector('[data-header]');
     if (header && header.classList.contains('rb-header--overlay')) {
+      var hero = document.getElementById('hauptinhalt');
       var onScroll = function () {
-        header.classList.toggle('is-scrolled', window.scrollY > 24);
+        var navH = header.offsetHeight || 72;
+        var threshold = hero ? Math.max(hero.offsetHeight - navH, 24) : 24;
+        header.classList.toggle('is-scrolled', window.scrollY > threshold);
       };
       onScroll();
       window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
     }
   })();
 </script>
